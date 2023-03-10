@@ -5,18 +5,23 @@ body {
 
 }
 
-*:before,
-*:after {
-    box-sizing: border-box;
+* {
+     box-sizing: border-box;
 }
 
+
 .container {
-    padding: 0;
+    padding: 1em;
     margin: 0 auto;
     text-align: center;
     width: 50%;
     max-width: 100%;
     background-color: bisque;
+
+}
+
+.container:hover{
+    cursor: pointer;
 }
 
 .accordion {
@@ -24,13 +29,20 @@ body {
 
 }
 
+
+
+
 .foto {
     margin-bottom: 1em;
+    width: 50%;
+    display: none;
 }
 
-.foto1 {
-    width: 90%;
+.active {
+    display: inline-block;
 }
+
+
 
 .main_title {
     text-align: left;
@@ -38,7 +50,29 @@ body {
     padding: 0.5em;
 }
 
+.accordion__title-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .accordion__title {
     text-align: left;
     padding-left: 1em;
 }
+
+.accordion__title {
+    width: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
