@@ -1,12 +1,17 @@
-body {
+body,
+hr {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
 
+body {
+    padding: 0 calc(20px - (100vw - 100%)) 0 0;
+}
+
 * {
-     box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
@@ -18,30 +23,55 @@ body {
     max-width: 100%;
     background-color: bisque;
 
+
 }
 
-.container:hover{
+.icon {
+    opacity: 0;
+    transition: 0.3s;
+
+}
+
+.container:hover {
     cursor: pointer;
 }
 
-.accordion {
-    padding: 0;
+
+.container:hover .icon {
+    opacity: 1;
+    transition: all .5s ease-in-out;
 
 }
 
+/*
+.container:hover input:not([checked]) + label h2  {
+    color: #30722b;
+    transition: color .5s ease-in-out;
+}
+*/
 
+
+
+.accordion {
+    padding: 0;
+}
 
 
 .foto {
     margin-bottom: 1em;
     width: 50%;
-    display: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    transition: max-height 1s ease-in-out;
+
 }
 
-.active {
-    display: inline-block;
-}
+h2:hover {
+    color: crimson;
 
+}
 
 
 .main_title {
@@ -50,29 +80,44 @@ body {
     padding: 0.5em;
 }
 
-.accordion__title-block {
+
+label {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
-.accordion__title {
+
+label h2 {
     text-align: left;
     padding-left: 1em;
-}
-
-.accordion__title {
     width: 90%;
 }
 
 
+.container input {
+    display: none;
+}
+
+.container label {
+    cursor: pointer;
+    z-index: 100;
+}
+
+.container input:checked + label ~ .foto {
+    max-height: 100vh;
+}
+
+.container input:hover + label ~ .foto {
+    max-height: 100vh;
+}
 
 
+.container input:checked + label .icon {
+    transform: rotate(45deg);
+}
 
-
-
-
-
-
-
-
+.container input:hover + label .icon {
+    transform: rotate(45deg);
+}
