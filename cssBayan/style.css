@@ -6,8 +6,10 @@ hr {
 
 }
 
-body {
-    padding: 0 calc(20px - (100vw - 100%)) 0 0;
+
+/*Полоса прокрутки не cдвинает аккордеон*/
+html {
+    margin-right: calc(-1 * (100vw - 100%));
 }
 
 * {
@@ -22,8 +24,6 @@ body {
     width: 50%;
     max-width: 100%;
     background-color: bisque;
-
-
 }
 
 .icon {
@@ -40,15 +40,22 @@ body {
 .container:hover .icon {
     opacity: 1;
     transition: all .5s ease-in-out;
-
 }
 
-/*
-.container:hover input:not([checked]) + label h2  {
-    color: #30722b;
-    transition: color .5s ease-in-out;
+
+.container input:not(:checked) + label h2 {
+    color: #078b78;
+    transition: color .2s ease-in-out;
 }
-*/
+
+.container input:active:hover + label h2 {
+    color: #078b78;
+    transition: color .2s ease-in-out;
+}
+
+.container:hover input + label h2 {
+    color: black;
+}
 
 
 
@@ -66,10 +73,6 @@ body {
     max-height: 0;
     transition: max-height 1s ease-in-out;
 
-}
-
-h2:hover {
-    color: crimson;
 
 }
 
@@ -80,13 +83,14 @@ h2:hover {
     padding: 0.5em;
 }
 
-
-label {
+.title_icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
+
+
+label {}
 
 
 label h2 {
@@ -105,11 +109,15 @@ label h2 {
     z-index: 100;
 }
 
-.container input:checked + label ~ .foto {
+.container input:checked + label .foto {
     max-height: 100vh;
 }
 
-.container input:hover + label ~ .foto {
+.container input:hover + label .foto {
+    max-height: 100vh;
+}
+
+.container .foto:hover {
     max-height: 100vh;
 }
 
@@ -121,3 +129,51 @@ label h2 {
 .container input:hover + label .icon {
     transform: rotate(45deg);
 }
+
+
+
+@media (min-width: 320px) {
+    .container {
+        width: 100%;
+        font-size: 0.8em;
+        min-height: 100vh;
+    }
+
+    .foto {
+        width: 70%;
+    }
+
+}
+
+@media (min-width: 820px) {
+    .container {
+        width: 100%;
+        font-size: 1em;
+        min-height: 100vh;
+    }
+
+    .foto {
+        width: 50%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 1em;
+        margin: 0 auto;
+        text-align: center;
+        width: 50%;
+        min-height: 100vh;
+    }
+    .foto {
+        width: 45%;
+    }
+}
+
+media (hover: none) {
+  {
+    max-height: 100vh;
+}
+}
+
